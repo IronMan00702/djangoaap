@@ -76,11 +76,8 @@ WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'MySQL - Flexible Server',
-        'SERVER_NAME':'djangofirstapp12-server',
-        'NAME': 'mydb',
-        'USER': 'eeisdmqmpr',
-        'PASSWORD': 'eeisdmqmpr',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
