@@ -1,0 +1,36 @@
+[2023-09-04 12:18:35,935]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+[2023-09-04 12:18:36,157]241django.request-ERROR-Internal Server Error: /ask/
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 319, in _get_len_safe_embeddings
+    import tiktoken
+ModuleNotFoundError: No module named 'tiktoken'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py", line 72, in ask_question
+    vectordb = Chroma.from_documents(texts, embedding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\chroma.py", line 612, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\chroma.py", line 576, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\chroma.py", line 186, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 478, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=self.deployment)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 321, in _get_len_safe_embeddings
+    raise ImportError(
+ImportError: Could not import tiktoken python package. This is needed in order to for OpenAIEmbeddings. Please install it with `pip install tiktoken`.

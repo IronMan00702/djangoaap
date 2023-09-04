@@ -1,0 +1,2 @@
+[2023-09-04 12:19:56,632]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+[2023-09-04 12:19:59,065]126chromadb.segment.impl.vector.local_hnsw-WARNING-Number of requested results 4 is greater than number of elements in index 1, updating n_results = 1
