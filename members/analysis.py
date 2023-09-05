@@ -5,10 +5,14 @@ import sys
 from pathlib import Path
 
 #for appending the file address
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] =  os.getenv("OPENAI_API_KEY")
 
 from langchain.chains.question_answering import load_qa_chain
 from langchain import SerpAPIWrapper

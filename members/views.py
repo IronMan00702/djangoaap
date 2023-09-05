@@ -6,8 +6,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter, Language
 from .analysis import analyze_and_answer
 from .open_ai_embedding import get_openAi_embeddings
 from django.core.files.storage import FileSystemStorage
-import click
-import torch
 from .constants import (
     CHROMA_SETTINGS,
     PERSIST_DIRECTORY,

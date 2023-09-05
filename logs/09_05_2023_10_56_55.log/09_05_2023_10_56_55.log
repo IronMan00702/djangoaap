@@ -1,0 +1,90 @@
+[2023-09-05 10:57:18,701]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+[2023-09-05 10:57:26,720]67openai-INFO-error_code=invalid_api_key error_message='Incorrect API key provided: sk-zP27M***************************************d7ow. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+[2023-09-05 10:57:26,956]241django.request-ERROR-Internal Server Error: /ask/
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py", line 71, in ask_question
+    result = analyze_and_answer(question, vectordb)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\analysis.py", line 171, in analyze_and_answer
+    query =qa(user_query)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\chains\base.py", line 292, in __call__
+    raise e
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\chains\base.py", line 286, in __call__
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 136, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 216, in _get_docs
+    return self.retriever.get_relevant_documents(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\schema\retriever.py", line 208, in get_relevant_documents
+    raise e
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\schema\retriever.py", line 201, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\base.py", line 562, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\chroma.py", line 259, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(query, k, filter=filter)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\chroma.py", line 331, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 506, in embed_query
+    return self.embed_documents([text])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 478, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=self.deployment)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 364, in _get_len_safe_embeddings
+    response = embed_with_retry(
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 107, in embed_with_retry
+    return _embed_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\tenacity\__init__.py", line 289, in wrapped_f
+    return self(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\tenacity\__init__.py", line 379, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\tenacity\__init__.py", line 314, in iter
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\tenacity\__init__.py", line 382, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\embeddings\openai.py", line 104, in _embed_with_retry
+    response = embeddings.client.create(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\openai\api_resources\embedding.py", line 33, in create
+    response = super().create(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\openai\api_resources\abstract\engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+                           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\openai\api_requestor.py", line 298, in request
+    resp, got_stream = self._interpret_response(result, stream)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\openai\api_requestor.py", line 700, in _interpret_response
+    self._interpret_response_line(
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\openai\api_requestor.py", line 765, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.AuthenticationError: Incorrect API key provided: sk-zP27M***************************************d7ow. You can find your API key at https://platform.openai.com/account/api-keys.
+[2023-09-05 10:58:56,335]266django.utils.autoreload-INFO-C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py changed, reloading.
