@@ -1,0 +1,127 @@
+[2023-09-06 17:24:31,867]241django.request-ERROR-Internal Server Error: /ask/
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\document_loaders\unstructured.py", line 47, in __init__
+    import unstructured  # noqa:F401
+    ^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'unstructured'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\concurrent\futures\process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 44, in load_document_batch
+    data_list = [future.result() for future in futures]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 44, in <listcomp>
+    data_list = [future.result() for future in futures]
+                 ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Program Files\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 30, in load_single_document
+    loader = loader_class(file_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\document_loaders\unstructured.py", line 167, in __init__
+    super().__init__(mode=mode, **unstructured_kwargs)
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\document_loaders\unstructured.py", line 49, in __init__
+    raise ValueError(
+ValueError: unstructured package not found, please install it with `pip install unstructured`
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py", line 62, in ask_question
+    documents = load_documents(SOURCE_DIRECTORY)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 75, in load_documents
+    contents, _ = future.result()
+                  ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+ValueError: unstructured package not found, please install it with `pip install unstructured`
+[2023-09-06 17:24:36,567]241django.request-ERROR-Internal Server Error: /ask/
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\document_loaders\unstructured.py", line 47, in __init__
+    import unstructured  # noqa:F401
+    ^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'unstructured'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\concurrent\futures\process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 44, in load_document_batch
+    data_list = [future.result() for future in futures]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 44, in <listcomp>
+    data_list = [future.result() for future in futures]
+                 ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Program Files\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 30, in load_single_document
+    loader = loader_class(file_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\document_loaders\unstructured.py", line 167, in __init__
+    super().__init__(mode=mode, **unstructured_kwargs)
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\document_loaders\unstructured.py", line 49, in __init__
+    raise ValueError(
+ValueError: unstructured package not found, please install it with `pip install unstructured`
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py", line 62, in ask_question
+    documents = load_documents(SOURCE_DIRECTORY)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 75, in load_documents
+    contents, _ = future.result()
+                  ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+ValueError: unstructured package not found, please install it with `pip install unstructured`
+[2023-09-06 17:24:50,982]266django.utils.autoreload-INFO-C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py changed, reloading.

@@ -8,8 +8,6 @@ from .logger import logging
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import ElasticVectorSearch, Pinecone, Weaviate, FAISS
 from PyPDF2 import PdfReader
-import click
-import torch
 import logging
 import os
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
@@ -32,6 +30,7 @@ def load_single_document(file_path: str) -> Document:
         loader = loader_class(file_path)
     else:
         raise ValueError("Document type is undefined")
+    logging.info("loaded Sucessfully")
     return loader.load()[0]
 
 #for bacth of documents of same type
@@ -82,6 +81,7 @@ def load_documents(source_dir: str) -> list[Document]:
 
 def split_documents(documents: list[Document]) -> tuple[list[Document], list[Document]]:
     # Splits documents for correct Text Splitter
+    logging.info("Splitting Started")
     text_docs, python_docs = [], []
     for doc in documents:
         file_extension = os.path.splitext(doc.metadata["source"])[1]
@@ -90,6 +90,7 @@ def split_documents(documents: list[Document]) -> tuple[list[Document], list[Doc
         else:
             text_docs.append(doc)
 
+    logging.info("splitted sucessfully")
     return text_docs, python_docs
 
 

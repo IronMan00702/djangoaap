@@ -1,0 +1,19 @@
+[2023-09-06 17:23:01,313]241django.request-ERROR-Internal Server Error: /ask/
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py", line 62, in ask_question
+    documents = load_documents(UPLOAD_FOLDER)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\ingest.py", line 51, in load_documents
+    all_files = os.listdir(source_dir)
+                ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'source_documents'
+[2023-09-06 17:23:32,971]266django.utils.autoreload-INFO-C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py changed, reloading.

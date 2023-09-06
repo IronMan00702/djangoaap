@@ -1,0 +1,3 @@
+[2023-09-06 19:36:16,896]84root-INFO-Splitting Started
+[2023-09-06 19:36:16,896]93root-INFO-splitted sucessfully
+[2023-09-06 19:36:17,066]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.

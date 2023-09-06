@@ -1,0 +1,4 @@
+[2023-09-06 19:35:43,644]84root-INFO-Splitting Started
+[2023-09-06 19:35:43,644]93root-INFO-splitted sucessfully
+[2023-09-06 19:35:43,681]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+[2023-09-06 19:36:07,455]266django.utils.autoreload-INFO-C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\constants.py changed, reloading.

@@ -159,71 +159,10 @@ print(llm)
 chain = load_qa_chain(OpenAI(), chain_type="stuff")
 
 def analyze_and_answer(user_query,verctordb,max_tokens=100):
+     retriever=verctordb.as_retriever()
+     print("hii")
+     qa = RetrievalQA.from_chain_type(OpenAI(),retriever=retriever,chain_type="stuff",return_source_documents=False,chain_type_kwargs={"prompt": prompt, "memory": memory}) #,return_source_documents=True,chain_type_kwargs={"prompt": prompt, "memory": memory},
+     query =qa(user_query)
+     return query
 
-    retriever=verctordb.as_retriever()
-
-    print("hii")
-
-   
-
-    qa = RetrievalQA.from_chain_type(OpenAI(),retriever=retriever,chain_type="stuff",return_source_documents=False,chain_type_kwargs={"prompt": prompt, "memory": memory}) #,return_source_documents=True,chain_type_kwargs={"prompt": prompt, "memory": memory},
-
-    query =qa(user_query)
-    return query
-
-    # docs = docsearch.similarity_search(query)
-
-
-
-
-        # Ask the question and get a respon
-
- 
-
-        # # Check the token count in the response
-
-        # response_tokens = len(query_response["response"]["choices"][0]["text"].split())
-
-       
-
-        # if response_tokens > max_tokens:
-
-        #     # If the response exceeds the token limit, ask if the user wants more
-
-        #     print("Response exceeds token limit. Do you want more? (yes/no)")
-
-        #     user_input = input().strip().lower()
-
-           
-
-        #     if user_input == "yes":
-
-        #         # Continue the response
-
-        #         query += query_response["response"]["choices"][0]["text"]
-
-        #     else:
-
-        #         # Stop if the user doesn't want more
-
-        #         response = query_response["response"]["choices"][0]["text"]
-
-        #         break
-
-        # else:
-
-        #     # If the response is within the token limit, store it and stop
-
-        #     response = query_response["response"]["choices"][0]["text"]
-
-        #     break
-
- 
-
-# user_query = "How many projects are completed and not started or not completed for 'PRJ3464 - GTS-CPQ Implementation-Storage'?"
-
-# response = analyze_and_answer(user_query, verctordb, max_tokens=100)
-
-# print(response)
-
-    #return query
+    

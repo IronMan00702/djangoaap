@@ -1,0 +1,38 @@
+[2023-09-06 15:57:49,756]84root-INFO-Splitting Started
+[2023-09-06 15:57:49,756]93root-INFO-splitted sucessfully
+[2023-09-06 15:57:49,756]71root-INFO-second done
+[2023-09-06 15:57:49,756]73root-INFO-third done
+[2023-09-06 15:57:50,470]241django.request-ERROR-Internal Server Error: /ask/
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\faiss.py", line 47, in dependable_faiss_import
+    import faiss
+ModuleNotFoundError: No module named 'faiss'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py", line 74, in ask_question
+    vectordb = FAISS.from_documents(texts, embedding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\base.py", line 417, in from_documents
+    return cls.from_texts(texts, embedding, metadatas=metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\faiss.py", line 603, in from_texts
+    return cls.__from(
+           ^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\faiss.py", line 557, in __from
+    faiss = dependable_faiss_import()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\parth.chaturvedi\Desktop\django\myworld\Lib\site-packages\langchain\vectorstores\faiss.py", line 49, in dependable_faiss_import
+    raise ImportError(
+ImportError: Could not import faiss python package. Please install it with `pip install faiss-gpu` (for CUDA supported GPU) or `pip install faiss-cpu` (depending on Python version).
+[2023-09-06 15:59:30,448]266django.utils.autoreload-INFO-C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\constants.py changed, reloading.

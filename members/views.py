@@ -6,11 +6,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter, Language
 from .analysis import analyze_and_answer
 from .open_ai_embedding import get_openAi_embeddings
 from django.core.files.storage import FileSystemStorage
-from .constants import (
-    CHROMA_SETTINGS,
-    PERSIST_DIRECTORY,
-    SOURCE_DIRECTORY,
-)
+from django.conf import settings
 import os
 import json
 from django.http import HttpResponse
@@ -45,8 +41,8 @@ def upload_file(request):
 
     if file and allowed_file(file.name):
         fs = FileSystemStorage()
-        filename = fs.save(os.path.join(UPLOAD_FOLDER, file.name), file)
-        return JsonResponse({"message": "Your file is uploaded successfully"}, status=201)
+        filename = fs.save(os.path.join(settings.SOURCE_DIRECTORY, file.name), file)
+        return JsonResponse({"message": "Your file is uploaded successfully. OS Path"+os.path.join(settings.SOURCE_DIRECTORY, file.name)}, status=201)
     else:
         return JsonResponse({"error": "Invalid file format"}, status=400)
 
@@ -58,8 +54,9 @@ def ask_question(request):
         question = data.get('question')
         if question:
             # Replace the following code with your logic for loading documents and analyzing questions
-            documents = load_documents(SOURCE_DIRECTORY)
+            documents = load_documents(settings.SOURCE_DIRECTORY)
             text_documents, python_documents = split_documents(documents)
+            print(text_documents)
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
             python_splitter = RecursiveCharacterTextSplitter.from_language(
                 language=Language.PYTHON, chunk_size=1000, chunk_overlap=200

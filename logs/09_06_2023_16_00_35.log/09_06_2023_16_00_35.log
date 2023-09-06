@@ -1,0 +1,9 @@
+[2023-09-06 16:00:44,447]84root-INFO-Splitting Started
+[2023-09-06 16:00:44,448]93root-INFO-splitted sucessfully
+[2023-09-06 16:00:44,477]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+[2023-09-06 16:00:46,074]126chromadb.segment.impl.vector.local_hnsw-WARNING-Number of requested results 4 is greater than number of elements in index 1, updating n_results = 1
+[2023-09-06 16:02:38,680]84root-INFO-Splitting Started
+[2023-09-06 16:02:38,680]93root-INFO-splitted sucessfully
+[2023-09-06 16:02:38,684]16chromadb.telemetry.posthog-INFO-Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+[2023-09-06 16:02:40,929]126chromadb.segment.impl.vector.local_hnsw-WARNING-Number of requested results 4 is greater than number of elements in index 2, updating n_results = 2
+[2023-09-06 16:03:30,036]266django.utils.autoreload-INFO-C:\Users\parth.chaturvedi\Desktop\django\my_tennis_club\members\views.py changed, reloading.

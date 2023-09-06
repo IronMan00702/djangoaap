@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j9gy&6a=ctziox$ojyy492p@cmoz&afjz&bawsg0zs2vo5!%xl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -113,12 +113,20 @@ USE_I18N = True
 USE_TZ = True
 
 
+import os
+
+ROOT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
+SOURCE_DIRECTORY = os.path.join(ROOT_DIRECTORY, "source_documents")
+PERSIST_DIRECTORY = os.path.join(ROOT_DIRECTORY, "DB")
+MEDIA_ROOT = SOURCE_DIRECTORY
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-import os
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
